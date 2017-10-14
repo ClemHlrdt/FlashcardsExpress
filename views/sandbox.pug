@@ -1,0 +1,19 @@
+doctype html
+html(lang="en")
+    head
+        title Sandbox
+    body
+        header
+            h1 Sandbox
+        section#content
+            table
+                tr
+                    th Firstname
+                    th Lastname
+                tr
+                    each firstname, lastname in names
+                        td #{firstname} #{lastname}
+    
+        footer
+            p Two names
+        

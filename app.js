@@ -2,12 +2,33 @@ const express = require('express');
 
 const app = express();
 
+const colors = [
+    'red',
+    'orange',
+    'yellow',
+    'green',
+    'blue',
+    'purple'
+];
+
+const names = {
+        1: ["Daria"],
+        2: ["Clément"]
+}
+    
+
+app.set('view engine', 'pug');
+
 app.get("/", function (req, res) {
-    res.send('<h1>I love Treehouse!</h1>');
+    res.render('index');
 })
 
-app.get("/hello", function (req, res) {
-    res.send('<h1>Hello, JavaScript Developper!</h1>');
+app.get("/cards", function (req, res) {
+    res.render('card', { prompt: "Who is buried in Grant's tomb?", hint: "Think about who's tomb it is.", colors })
+})
+
+app.get("/sandbox", function (req, res) {
+    res.render('sandbox', { names })
 })
 
 app.listen(3000, () => {
