@@ -6,6 +6,10 @@ const { cards } = data; // equals to cards = data.cards. ES6 feature
 router.get('/:id', (req, res) => {
     const {side} = req.query;
     const { id } = req.params;
+    if(!side){
+        return res.redirect(`/cards/${id}?side=question`);
+    }
+
     const text = cards[id][side];
     const { hint } = cards[id];
 
